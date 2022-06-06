@@ -14,3 +14,5 @@ Route::get('/callApi', [AssignmentController::class, 'callApi'])->name("callApi"
 
 Route::get('/nominee', [AssignmentController::class, 'nominee'])->name("nominee");
 
+Route::get('/randomBeer', [AssignmentController::class, 'randomBeer'])->name("randomBeer");
+
