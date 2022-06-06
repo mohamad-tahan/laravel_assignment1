@@ -41,9 +41,14 @@ class AssignmentController extends Controller
             echo curl_error($curl);
         }
         curl_close($curl);
+        $jsonArray = json_decode($json,true);
+        $array2 = $jsonArray["attachments"];
+        $firstElement=reset($array2);
+        $string=json_encode($firstElement,true);
+        $array=json_decode($string,true);
+        $result = $array["text"];
         return response()->json([
-            "status" => "Success",
-            "api:" => json_decode($json)
+            "text: " => $result
         ], 200);
     }
 
