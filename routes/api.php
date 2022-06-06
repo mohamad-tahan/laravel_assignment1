@@ -10,4 +10,5 @@ Route::get('/assign', [AssignmentController::class, 'countPalindromes'])->name("
 
 Route::get('/second', [AssignmentController::class, 'countSeconds'])->name("second");
 
+Route::get('/call', [AssignmentController::class, 'callApi'])->name("call");
 
