@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AssignmentController;
 
 
-Route::get('/assign', [AssignmentController::class, 'countPalindromes'])->name("palindrome");
+Route::get('/countPalindromes', [AssignmentController::class, 'countPalindromes'])->name("countPalindromes");
 
-Route::get('/second', [AssignmentController::class, 'countSeconds'])->name("second");
+Route::get('/countSeconds', [AssignmentController::class, 'countSeconds'])->name("countSeconds");
 
-Route::get('/call', [AssignmentController::class, 'callApi'])->name("call");
+Route::get('/callApi', [AssignmentController::class, 'callApi'])->name("callApi");
+
+Route::get('/nominee', [AssignmentController::class, 'nominee'])->name("nominee");
 
