@@ -14,7 +14,6 @@ class AssignmentController extends Controller
             if ($pal[$i] == strrev($pal[$i])) {
                 $count++;
             }
-          
         }
         return response()->json([
             "success" => "hi",
@@ -49,8 +48,29 @@ class AssignmentController extends Controller
     }
 
 
-    public function nominee(){
+    public function nominee()
+    {
         $array = ["adam", "john", "joe", "pablo", "alex"];
         echo $array[array_rand($array)];
+    }
+
+    public function randomBeer()
+    {
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, "https://api.punkapi.com/v2/beers");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 4);
+        $json = curl_exec($curl);
+        if (!$json) {
+            echo curl_error($curl);
+        }
+        curl_close($curl);
+
+
+        $jsonArray = json_decode($json, true);
+
+        $result = $jsonArray[rand(0, count($jsonArray) - 1)]["ingredients"];
+        return $result;
     }
 }
