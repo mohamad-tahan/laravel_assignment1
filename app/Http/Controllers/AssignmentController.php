@@ -16,11 +16,20 @@ class AssignmentController extends Controller
             }
             return response()->json([
                 "success" => "hi",
-                "pal" => $count
+                "palindromes" => $count
             ], 200);
         }
     }
 
+    public function countSeconds(){
+        $dat1 = mktime(4,14,1732);
+        $date2 = microtime(true);
+        $diff = $dat1 - $date2;
+
+        echo $diff;
+
+        
+    }
 
     
 
