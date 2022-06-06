@@ -14,18 +14,19 @@ class AssignmentController extends Controller
             if ($pal[$i] == strrev($pal[$i])) {
                 $count++;
             }
-            return response()->json([
-                "success" => "hi",
-                "palindromes" => $count
-            ], 200);
+          
         }
+        return response()->json([
+            "success" => "hi",
+            "palindromes" => $count
+        ], 200);
     }
 
     public function countSeconds()
     {
-        $dat1 = mktime(4, 14, 1732);
+        $date1 = mktime(4, 14, 1732);
         $date2 = microtime(true);
-        $diff = $dat1 - $date2;
+        $diff = $date2 - $date1;
 
         echo $diff;
     }
@@ -45,5 +46,11 @@ class AssignmentController extends Controller
             "status" => "Success",
             "api:" => json_decode($json)
         ], 200);
+    }
+
+
+    public function nominee(){
+        $array = ["adam", "john", "joe", "pablo", "alex"];
+        echo $array[array_rand($array)];
     }
 }
